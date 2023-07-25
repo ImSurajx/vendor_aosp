@@ -33,6 +33,10 @@
         <item>com.google.android.as/com.google.intelligence.sense.ambientmusic.AmbientMusicNotificationsSettingsActivity</item>
         <item>com.google.android.as/com.google.intelligence.sense.ambientmusic.AmbientMusicSetupWizardActivity</item>
         <item>com.google.android.dialer/com.android.dialer.rtt.settings.impl.gateway.RttSettingsDeepLink</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService.ActiveReceiver</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService.Receiver</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService.SecretCodeReceiver</item>
+        <item>com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService$GmsExternalReceiver</item>
     </string-array>
 
     <string-array name="config_locationExtraPackageNames" translatable="false">
@@ -70,4 +74,10 @@
     <!-- If this is true, long press on power button will be available from a
          non-interactive state. -->
     <bool name="config_supportLongPressPowerWhenNonInteractive">true</bool>
+
+    <!-- Whether or not to enable the lock screen entry point for the QR code scanner. -->
+    <bool name="config_enableQrCodeScannerOnLockScreen">true</bool>
+
+    <!-- Default value for performant auth feature. -->
+    <bool name="config_performantAuthDefault">true</bool>
 </resources>
