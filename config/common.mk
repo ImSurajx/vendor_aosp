@@ -54,8 +54,7 @@ PRODUCT_COPY_FILES += \
 
 # Copy all custom init rc files
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/init/init.pixelexperience-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.pixelexperience-updater.rc \
-    vendor/aosp/prebuilt/common/etc/init/init.snet.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.snet.rc
+    vendor/aosp/prebuilt/common/etc/init/init.pixelexperience-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.pixelexperience-updater.rc
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
@@ -97,6 +96,10 @@ PRODUCT_PACKAGES += \
     mkfs.ntfs \
     mount.ntfs
 
+# Config
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
+
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
@@ -123,11 +126,7 @@ PRODUCT_PACKAGES += \
 
 # One Handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.support_one_handed_mode=true \
-
-# NavigationBarMode
-PRODUCT_PACKAGES += \
-    NavigationBarMode2ButtonOverlay
+    ro.support_one_handed_mode?=true \
 
 # Hide navigation bar hint
 PRODUCT_PACKAGES += \
@@ -216,6 +215,10 @@ endif
 PRODUCT_PACKAGES += \
     RepainterServicePriv
 
+# NexusLauncher resources
+PRODUCT_PACKAGES += \
+    NexusLauncherResOverlay
+
 # Audio
 $(call inherit-product, vendor/aosp/config/audio.mk)
 
@@ -225,8 +228,8 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 # Fonts
 $(call inherit-product, vendor/aosp/config/fonts.mk)
 
-# GApps
-$(call inherit-product, vendor/gapps/config.mk)
+# GMS
+$(call inherit-product, vendor/gms/products/gms.mk)
 
 # OTA
 #(call inherit-product, vendor/aosp/config/ota.mk)
